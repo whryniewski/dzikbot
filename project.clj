@@ -7,6 +7,7 @@
                  [ring/ring-core "1.5.0"]
                  [ring/ring-jetty-adapter "1.5.0"]
                  [ring/ring-json "0.4.0"]
+                 [ring/ring-codec "1.0.1"]
                  [clj-http "2.3.0"]
                  [org.clojure/data.json "0.2.6"]]
   :plugins [[lein-ring "0.9.7"]]
