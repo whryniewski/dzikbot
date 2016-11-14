@@ -21,7 +21,7 @@
 (defn search [term]
   (let [response (client/get
                   (format "http://api.giphy.com/v1/gifs/search?q=%s&api_key=dc6zaTOxFJmzC"
-                          (codec/url-encode "term")))]
+                          (codec/url-encode term)))]
     (-> response
         :body
         json/read-str

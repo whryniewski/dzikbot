@@ -20,7 +20,7 @@
                  :icon_url "https://www.staffordshire.police.uk/media/3509/Helmet-Icon-Clear/image/Police_Helmet_200px_blue.png" 
                  :text (format "Watch your language, %s!" username)})
       
-      (re-find #"^!fortune .*" text)
+      (re-find #"^!fortune.*" text)
       (response {:username "Wizard"
                  :text (dzik.fortune/fortune)})
       
