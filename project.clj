@@ -11,4 +11,4 @@
                  [clj-http "2.3.0"]
                  [org.clojure/data.json "0.2.6"]]
   :plugins [[lein-ring "0.9.7"]]
-  :ring {:handler dzik.core/json-handler})
+  :ring {:handler dzik.core/giphy-handler})

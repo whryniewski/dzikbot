@@ -11,6 +11,7 @@
       (get "image_original_url")))
 
 (defn random []
+  (println "random image")
   (let [response (client/get (format "http://api.giphy.com/v1/gifs/random?api_key=dc6zaTOxFJmzC") {:accept :json})]
     (-> response
         :body
@@ -19,6 +20,8 @@
         (get "image_original_url"))))
 
 (defn search [term]
+
+  (println (format "searching for image %s" term))
   (let [response (client/get
                   (format "http://api.giphy.com/v1/gifs/search?q=%s&api_key=dc6zaTOxFJmzC"
                           (codec/url-encode term)))]
@@ -30,8 +33,3 @@
         (get "images")
         (get "original")
         (get "url"))))
-
-
-
-
-
