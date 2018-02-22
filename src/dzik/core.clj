@@ -3,6 +3,7 @@
          '[ring.util.response :refer [response]]
          '[dzik.fortune]
          '[dzik.giphy]
+         '[dzik.images]
          '[clojure.string :as str]
          '[ring.middleware.params :as params])
 
@@ -49,6 +50,18 @@
                            (if (< 0 (count (str/trim (params "text")))) (params "text") "random giphyyy")
                            (if (< 0 (count (str/trim (params "text")))) (dzik.giphy/search (str/trim (params "text"))) (dzik.giphy/random))))
                  })
+      (= (params "command") "/cowsay")
+      (response {:response_type "in_channel"
+                 :username "Giphosaurus" 
+                 :icon_url "http://findicons.com/files/icons/7/dinosaurs_toys/128/tyrannosaurus_rex.png" 
+                 :text 
+                 (format "%s wants cow to say:\n ![cowsay](%s)"
+                         (params "user_name")
+                         (if (< 0 (count (str/trim (params "text"))))
+                           (dzik.images/add-text-get-url (str/trim (params "text")))
+                           (dzik.images/add-text-get-url (str/trim (params "text")))))
+                 })
+      
       (= (params "trigger_word") "butter")
       (response {:response_type "in_channel"
                  :username "Robot" 
