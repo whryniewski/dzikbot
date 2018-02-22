@@ -46,6 +46,3 @@
 
 (def giphy-handler (params/wrap-params (wrap-json-response giphyhandler)))
 
-(def json-handler 
-  (wrap-json-params
-   (wrap-json-response handler)))
